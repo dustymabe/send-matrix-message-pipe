@@ -1,0 +1,9 @@
+# Socket FIFO file to send piped output from a FIFO to
+# to matrix-send-message-pipe.service. The fifo is in
+# the runtime directory root with is either `/run/` for
+# system or `$XDG_RUNTIME_DIR` for users.
+[Socket]
+ListenFIFO=%t/matrix-send-message-pipe
+
+[Install]
+WantedBy=sockets.target

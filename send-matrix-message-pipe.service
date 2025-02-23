@@ -1,0 +1,12 @@
+[Unit] 
+Description=Read From Socket/Pipe And Send Matrix Message 
+
+[Service] 
+# EnvironmentFile to tell us where to send the message.
+# %E is either /etc/ for system manager or $XDG_CONFIG_HOME
+# for user managers.
+EnvironmentFile=%E/send-matrix-message-pipe.env
+StandardInput=socket
+StandardOutput=journal
+StandardError=journal
+ExecStart=-send-matrix-message-pipe.sh
